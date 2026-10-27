@@ -1,0 +1,30 @@
+{
+  "seed": 42,
+  "primary_metric": "ndcg@10",
+  "data": {"max_items": 3500, "min_train_user": 3, "max_users": 20000},
+  "grids": {
+    "ItemKNN": [
+      {"neighbors": 50, "shrinkage": 10.0},
+      {"neighbors": 100, "shrinkage": 10.0},
+      {"neighbors": 200, "shrinkage": 10.0},
+      {"neighbors": 100, "shrinkage": 50.0}
+    ],
+    "EASE": [
+      {"regularization": 50.0},
+      {"regularization": 200.0},
+      {"regularization": 1000.0}
+    ],
+    "iALS": [
+      {"factors": 32, "regularization": 1.0, "alpha": 20.0, "iterations": 12},
+      {"factors": 32, "regularization": 10.0, "alpha": 20.0, "iterations": 12},
+      {"factors": 64, "regularization": 10.0, "alpha": 20.0, "iterations": 12}
+    ],
+    "FM": [
+      {"factors": 16, "learning_rate": 0.01, "regularization": 0.00001, "epochs": 8, "negative_ratio": 2, "batch_size": 2048},
+      {"factors": 32, "learning_rate": 0.01, "regularization": 0.00001, "epochs": 8, "negative_ratio": 2, "batch_size": 2048},
+      {"factors": 16, "learning_rate": 0.003, "regularization": 0.0001, "epochs": 8, "negative_ratio": 2, "batch_size": 2048}
+    ]
+  },
+  "custom_half_lives_days": [90, 365, 1095],
+  "custom_target_floor": 0.25
+}
